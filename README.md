@@ -77,4 +77,10 @@ My goal is to completely separate myself from the mindset of a researcher to an 
   - η makes sure total probability is 1.
   - If the sensor reading is bad, the correction may be far from what is real.
   - Image: ![alt text](assets/3_observation_model_correction_step_broken_sensor.png)
-   
+
+- [4_odometry_motion_model2.py](4_odometry_motion_model2.py)
+
+   - Before we begin with the odometry model, we need to find a way to represent the robot in 2D on a plane and the gaussian in 3D. 
+   - Below shows that. The countours around the robot is also how gaussian is represented in 2D.
+
+   - Image: ![alt text](assets/4_odometry_motion_model2.png)
