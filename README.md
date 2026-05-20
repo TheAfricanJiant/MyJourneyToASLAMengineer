@@ -26,14 +26,14 @@ My goal is to completely separate myself from the mindset of a researcher to an 
   - The world contains a set of 100 points with equal probability 1/100 for each point.
   - What does it mean? It means the robot does not know where it is yet.
   - Why? It considers every point to have equal chances of the robot being there.
-  - Image: ![alt text](assets/1_state_estimation_basics1.png)
+  - Image:  ![alt text](assets/1_state_estimation_basics1.png)
 
 - [1_state_estimation_basics2.py](1_state_estimation_basics2.py)
   - Somewhere around the 50.
   - So unlike the previous example, this code assumes the robot is around the mean but not completely certain about it. It forms a bell curve around the mean.
   - Why? You can never be so sure; actuator readings are never 100%. This is modeled by sigma.
   - Sigma signifies how far each reading is from the mean (50).
-  - Image: ![alt text](assets/1_state_estimation_basics2.png)
+  - Image:  ![alt text](assets/1_state_estimation_basics2.png)
 
 - [2_motion_model_prediction_step1.py](2_motion_model_prediction_step1.py)
   - Move the robot while reading motor encoders, for example.
@@ -44,7 +44,7 @@ My goal is to completely separate myself from the mindset of a researcher to an 
   ### Some Math
   - `bel(xt) = ∫ p(xt | ut, xt-1) * bel(xt-1) dxt-1`
      [motion model] [previous belief]
-     
+
   - This is known as the motion model. It predicts where the robot should be after a command u is applied (from a remote or autonomous manager).
   - Also notice that the height of each curve reduces over time. This is because after each step, the robot becomes less sure of where it is.
   - By the math: since the total probability must be 1, as each step is taken the curve widens so the amplitude drops to compensate and make the sum 1.
