@@ -9,9 +9,12 @@
 #Simulate a simple 1D robot on a line. Write a function that represents a belief as a probability distribution over positions.
 #bel(Xt) = p(Xt | Z1:t, U1:t)
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
+assets_dir = "assets"
+os.makedirs(assets_dir, exist_ok=True)
 
 # Represent the world as 100 positions (0 to 99) 
 positions = np.arange(100)
@@ -24,4 +27,5 @@ plt.plot(positions, belief)
 plt.title("Initial Belief - Uniform Distribution")
 plt.xlabel("position")
 plt.ylabel("probability")
+plt.savefig(os.path.join(assets_dir, "1_state_estimation_basics1.png"))
 plt.show()

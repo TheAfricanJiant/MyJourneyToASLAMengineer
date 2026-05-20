@@ -10,8 +10,12 @@
 #          [motion model]  [previous belief]
 # - The motion model p(xt | ut, xt-1) describes how the robot's state changes in response to control inputs (ut) and the previous state (xt-1). This is great and was possisble due to markov assumption.
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
+
+assets_dir = "assets"
+os.makedirs(assets_dir, exist_ok=True)
 
 positions = np.arange(100) 
 
@@ -65,4 +69,5 @@ plt.title("Prediction Step - Belief spreads with each move")
 plt.xlabel("Position")
 plt.ylabel("Probability")
 plt.legend()
+plt.savefig(os.path.join(assets_dir, "2_motion_model_prediction_step1.png"))
 plt.show()
