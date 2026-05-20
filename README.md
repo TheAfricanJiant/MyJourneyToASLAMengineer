@@ -84,4 +84,4 @@ My goal is to completely separate myself from the mindset of a researcher to an 
    - Below shows that. The countours around the robot is also how gaussian is represented in 2D.
 
    - Image: ![alt text](assets/4_odometry_motion_model2.png)
-   - ![alt text](assets/robot_gaussian_belief.gif)
+     ![alt text](assets/robot_gaussian_belief.gif)
