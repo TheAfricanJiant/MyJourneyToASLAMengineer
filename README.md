@@ -160,11 +160,20 @@ My goal is to completely separate myself from the mindset of a researcher to an 
 
 -[map.py](map.py)
   We first begin by creating a map containing walls and obstacles (inner walls)
+
    ![alt text](assets/ma.png)
 
 - [6_liklihood.py](6_liklihood.py)
-  Then we represent the likelihood map for every obstacle on the map. The Blur around the obstacles is due to guassian being applied to each endpoint. we can never be absolute. 
+  Then we represent the likelihood map for every obstacle on the map. The Blur around the obstacles is due to guassian being applied to each endpoint. we can never be absolute.
+
     ![alt text](assets/Guassian_likelihood.png)
 
    Let us have it animated to see how the beams interract with the walls. 
    ![alt text](laser_scan_animation.gif)
+
+- [6_likelihood_animated](6_likelihood_animated.py)
+  If the robot was at a single point, this is truly what it will see (live guassians)
+   
+   ![alt text](active_laser_gaussians.gif)
+
+  
