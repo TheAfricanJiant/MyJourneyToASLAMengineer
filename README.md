@@ -85,3 +85,4 @@ My goal is to completely separate myself from the mindset of a researcher to an 
 
    - Image: ![alt text](assets/4_odometry_motion_model2.png)
      ![alt text](assets/robot_gaussian_belief.gif)
+     <small>*remember this is just like the [1_state_estimation_basics2.py](1_state_estimation_basics2.py) above but in 2D*<small>
