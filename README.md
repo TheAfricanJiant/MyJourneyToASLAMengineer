@@ -86,3 +86,23 @@ My goal is to completely separate myself from the mindset of a researcher to an 
    - Image: ![alt text](assets/4_odometry_motion_model2.png)
      ![alt text](assets/robot_gaussian_belief.gif)
      <small>*remember this is just like the [1_state_estimation_basics2.py](1_state_estimation_basics2.py) above but in 2D*<small>
+
+- [5_odometry_motion_model_prediction_step_only.py](5_odometry_motion_model_prediction_step2D.py)
+
+  - This script continues the prediction step in 2D using the odometry motion model.
+  - It is similar to [2_motion_model_prediction_step1.py](2_motion_model_prediction_step1.py), but now the pose is (x, y, θ) instead of a single x position.
+  - The relative motion command is computed as `u = (δ_rot1, δ_trans, δ_rot2)` from odometry readings.
+  - These components are derived by comparing the previous pose `(x̄, ȳ, θ̄)` with the current odometry pose:
+    - `δ_rot1` = initial rotation to point toward the next position
+    - `δ_trans` = translation distance traveled
+    - `δ_rot2` = final rotation to the new heading
+  - The probabilistic motion model `p(x' | u, x)` adds Gaussian noise to each component using their variances.
+  - The noisy motion is applied to the previous pose `(x, y, θ)` with trigonometry to compute the new pose.
+  - Repeating this sampling generates a distribution over the next pose and captures motion uncertainty.
+  - ![alt text](<assets/Screenshot 2026-05-21 122853.png>)
+  - Result: ![alt text](assets/robot_odometry_prediction_step.gif)
+
+  - As the robot moves, the Gaussian belief spreads and the curve amplitude decreases.
+  - This is the same uncertainty effect seen earlier in 1D, and it is what the later correction step is designed to fix.
+
+      
