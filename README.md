@@ -129,3 +129,5 @@ My goal is to completely separate myself from the mindset of a researcher to an 
 
 ### Moving on to the sensor model. 
    ![alt text](assets/ma.png)
+
+   ### [*Intro*]
