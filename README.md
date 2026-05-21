@@ -127,4 +127,5 @@ My goal is to completely separate myself from the mindset of a researcher to an 
 
   This is the full prediction step used in the animation.
 
-      
+### Moving on to the sensor model. 
+   ![alt text](assets/ma.png)
