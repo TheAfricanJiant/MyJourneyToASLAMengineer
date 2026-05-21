@@ -127,7 +127,44 @@ My goal is to completely separate myself from the mindset of a researcher to an 
 
   This is the full prediction step used in the animation.
 
-### Moving on to the sensor model. 
+   ### Moving on to the sensor model. 
    ![alt text](assets/ma.png)
 
-   ### [*Intro*]
+    ### Sensor Model
+
+    The prediction step becomes more and more uncertain as the robot gets more commands. So the sensor model comes in to apply a correction to the prediction using sensor readings.  
+
+    There are various types of sensor models seen in this course:
+
+ - **Beam-Endpoint Sensor Model**  
+    Used with LiDAR sensors. It only considers the endpoints where the laser beams hit obstacles. When used on a map, it creates a likelihood map (see image below) — bright areas around walls show how likely the current scan is from a certain position.  
+    *Using this model on a map results in a likelihood map (see below) where each endpoint has a Gaussian around it.*
+
+ - **Ray-Cast Sensor Model**  
+   More accurate but slower. It simulates each laser beam until it hits the first obstacle. (I still need to understand this one better.)
+
+ - **Landmark Model**  
+  Used when the robot sees unique, recognizable features (landmarks). It helps the robot know “I’ve seen this before” and strongly corrects its position.
+
+  Now if we want to demonstrate the Bayes Filter for the robot we need to:
+ - Get the robot’s position from the motion model
+ - Get the position from the sensor too, then use it to correct the robot’s position
+
+  But to do this, the sensor model has to know (or guess) what position the robot is in when it is taking the reading. This is called **localization**.
+
+  To do this, we have two main possibilities:
+ - **Landmark Model** — This can determine the robot’s position after recognizing a Landmark.
+ - **Beam-Endpoint Model** — Compares the current laser scan with the expected scan at different possible positions using the likelihood map.
+
+ *I will focus on the Beam Endpoint.* 
+
+-[map.py](map.py)
+  We first begin by creating a map containing walls and obstacles (inner walls)
+   ![alt text](assets/ma.png)
+
+- [6_liklihood.py](6_liklihood.py)
+  Then we represent the likelihood map for every obstacle on the map. The Blur around the obstacles is due to guassian being applied to each endpoint. we can never be absolute. 
+    ![alt text](assets/Guassian_likelihood.png)
+
+   Let us have it animated to see how the beams interract with the walls. 
+   ![alt text](laser_scan_animation.gif)
