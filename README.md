@@ -105,4 +105,26 @@ My goal is to completely separate myself from the mindset of a researcher to an 
   - As the robot moves, the Gaussian belief spreads and the curve amplitude decreases.
   - This is the same uncertainty effect seen earlier in 1D, and it is what the later correction step is designed to fix.
 
+  ### If you want more math
+  **Complete odometry motion model in simple coding-style form:**
+
+  1. Compute the relative motion command from the previous pose `(x, y, θ)` and the new odometry pose `(x', y', θ')`:
+     - `delta_trans = sqrt((x' - x)**2 + (y' - y)**2)`
+     - `delta_rot1 = atan2(y' - y, x' - x) - theta`
+     - `delta_rot2 = theta' - theta - delta_rot1`
+
+  2. Add Gaussian noise to each component:
+     - `noisy_rot1 = delta_rot1 + random.normal(0, sigma_rot1)`
+     - `noisy_trans = delta_trans + random.normal(0, sigma_trans)`
+     - `noisy_rot2 = delta_rot2 + random.normal(0, sigma_rot2)`
+
+  3. Apply the noisy motion to update the pose:
+     - `new_x = x + noisy_trans * cos(theta + noisy_rot1)`
+     - `new_y = y + noisy_trans * sin(theta + noisy_rot1)`
+     - `new_theta = theta + noisy_rot1 + noisy_rot2`
+
+  4. Increase the uncertainty by expanding `sigma_x` and `sigma_y` slightly. This makes the Gaussian wider and lower after normalization.
+
+  This is the full prediction step used in the animation.
+
       
