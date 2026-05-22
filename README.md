@@ -158,7 +158,7 @@ My goal is to completely separate myself from the mindset of a researcher to an 
 
  *I will focus on the Beam Endpoint.* 
 
--[map.py](map.py)
+-[map.py](map.py)[[6_sensor_model1demo_beamendpoint_and_likelihood](6_sensor_model1demo_beamendpoint_and_likelihood.py)]
   We first begin by creating a map containing walls and obstacles (inner walls)
 
    ![alt text](assets/ma.png)
@@ -175,5 +175,16 @@ My goal is to completely separate myself from the mindset of a researcher to an 
   If the robot was at a single point, this is truly what it will see (live guassians)
    
    ![alt text](active_laser_gaussians.gif)
+
+- [7_full_Kalman_filter](7_full_Bayes_filter_kalman_filter.py)
+   Now We combine them together to form the baye's filter (kalman filter basic). As you may also notice, the correction keeps the guassian estimate of the position from spreading. 
+   ![alt text](assets/full_bayes_filter_final.gif)
+
+# Practicals
+
+## Using ROS2
+
+## Real life Practical Implementation in a Roomba
+ *see my Repo* (https://github.com/TheAfricanJiant/ArIa-Roomba)
 
   
